@@ -1,0 +1,76 @@
+https://www.hackerrank.com/challenges/climbing-the-leaderboard/problem
+
+take scores of other players in array
+take current ranks of players in array
+run a loop from 0 to length of array
+   if i>0 and scores[i]<scores[i-1]
+        increment rank[i]
+   else
+        rank[i]=rank
+
+take alice scores as input array
+
+run a outer loop from 0 to length of alice array
+run a inner loop from n-1 to 0
+   if(alice[j]<scores[i])
+        print ranks[i]+1
+        p=i  //tracking i
+        break
+                    
+   if(i==0)
+        System.out.println(ranks[i]);
+
+Solution
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] scores = new int[n];
+        int[] ranks=new int[n];
+        int i;
+        int rank=1;
+        ranks[0]=rank;
+       
+        for(i=0; i < n; i++){
+            scores[i] = sc.nextInt();
+            if(i>0 && scores[i]<scores[i-1])
+                ranks[i] = ++rank;
+            else
+                ranks[i]=rank;
+                
+        }
+        int m = sc.nextInt();
+        int[] alice = new int[m];
+        for(i=0; i < m; i++){
+            alice[i] = sc.nextInt();
+        }
+        
+        int p=n-1;
+        for(int j=0;j<alice.length;j++)
+        {
+            for(i=p;i>=0;i--)
+            {
+                if(alice[j]<scores[i]){
+                    System.out.println(ranks[i]+1);
+                    p=i;
+                    break;
+                    }
+                if(i==0)
+                    System.out.println(ranks[i]);
+                
+            }
+            
+        }
+        
+    }
+}

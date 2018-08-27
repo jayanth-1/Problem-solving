@@ -1,0 +1,46 @@
+https://www.hackerrank.com/challenges/angry-children/problem
+
+take input array,k
+k is array of length  from elements of  such that its unfairness is minimized
+sort array
+initialize ans variable to large number
+run a loop from 0 to lenght of array
+   temp = arr[k]-arr[i]
+   if temp<ans
+       ans=temp
+
+print ans
+
+Solution
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        int n, k;
+        
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        k = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i = 0; i < n; i++){
+            arr[i] = sc.nextInt();
+        }
+        Arrays.sort(arr);
+        --k;
+        int ans = 1000000000,tmp;
+        for(int i = 0; i < n && k < n; i++, k++){
+            tmp = arr[k] - arr[i];
+            if(tmp < ans ){
+                ans = tmp;
+            }
+        }
+        
+        System.out.println(ans);
+    }
+}

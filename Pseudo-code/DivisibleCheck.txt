@@ -1,0 +1,81 @@
+https://www.hackerrank.com/challenges/non-divisible-subset/problem
+
+take input array
+intialize count array
+
+run a outer loop from 0 to length of array
+        list[i] = input%k  // remainder of each element
+        count[list[i]]++   // storing no of elements having same remainder
+
+     if count[0] > 0
+            increment ans
+       
+         p = 1  // taking two pointers p and q
+         q = k-1
+        
+Loop p <= q)
+    if p == q)
+       if count[p] > 0
+          increment ans
+                
+        else 
+          ans += Math.max(count[p], count[q])
+            
+    increment p
+    increment q
+        
+print ans
+
+
+Solution
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class NonDivisible {
+
+    public static void main(String [] args){
+        Scanner sc = new Scanner(System.in);
+        
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        int [] list = new int [n];
+        int [] count = new int [k];
+        int max = 0;
+        int ans = 0;
+        
+        
+        for(int i = 0; i < n; i++){
+            list[i] = sc.nextInt()%k;
+            count[list[i]]++;
+        }
+        
+        if(count[0] > 0)
+            ans++;
+        
+        
+        int p = 1;
+        int q = k-1;
+        
+        while(p <= q){
+            if(p == q){
+                if(count[p] > 0){
+                    ans++;
+                }
+            } else {
+                ans += Math.max(count[p], count[q]);
+            }
+            
+            p++;
+            q--;
+        }
+        
+        System.out.println(ans);
+    }
+
+}

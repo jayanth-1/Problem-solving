@@ -1,0 +1,46 @@
+https://www.hackerrank.com/challenges/encryption/problem
+
+Input the given string s
+n->length of s 
+initilize ans variable to empty string
+find floor and ceil of square root of n 
+where floor is row and ceil is column
+run a loop from start to end of the string let the iterator be i
+	run another loop from i to end of the string
+		ans+=string[j]
+		add col value to j
+	go to next line in printing
+loop ends
+
+
+Solution
+
+    static String encryption(String s) {
+        int l = s.length();
+        double sq = Math.sqrt(l);
+        int width = (int)Math.ceil(sq);
+        String ans = "";
+        int currentCol = 0;
+        int currentChar = 0;
+
+        while (currentCol < width) {
+            while (currentChar < s.length()) {
+    
+                ans += s.charAt(currentChar);
+                currentChar += width;
+            }
+            currentCol++;
+            currentChar = currentCol;
+            ans += " ";
+
+    }
+       
+        return ans;
+
+    }
+
+    
+
+    
+
+

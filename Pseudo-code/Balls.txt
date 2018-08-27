@@ -1,0 +1,79 @@
+https://www.hackerrank.com/challenges/organizing-containers-of-balls/problem
+
+//here main logic is number of balls in each container is fixed after swapping also
+
+take 2d matrix M as input
+initialize container array to store no of balls in each container
+initialize color array to store no of balls of each color
+initialize n variable
+n <- size of matrix
+run a outer loop from 0 to n
+run a inner loop from 0 to n
+    M[i][j] = input
+    container[i] += M[i][j] //storing no of balls in each container
+    color[j] += M[i][j]     //storing no of balls of color j
+
+sort containers
+sort balls
+
+initialize boolean variable possible as false
+
+run a loop from 0 to length of array
+   if container[i] != color[i]
+           possible = false;
+           stop loop
+
+if possible
+      print Possible
+else
+      print Impossible
+
+
+Solution
+
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Containers {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        for(int p = 0; p < t; p++){
+            int n = sc.nextInt();
+            int[][] M = new int[n][n];
+            int[] container = new int[n];
+            int[] color = new int[n];
+            for(int i=0; i < n; i++){
+                for(int j=0; j < n; j++){
+                    M[i][j] = sc.nextInt();
+                    container[i] += M[i][j];
+                    color[j] += M[i][j];
+                }
+            }
+            Arrays.sort(container);
+            Arrays.sort(color);
+            
+            boolean possible = true;
+            for(int i = 0; i < n; i++){
+                if(container[i] != color[i]){
+                    possible = false;
+                    break;
+                }
+            }
+            if(possible)
+                System.out.println("Possible");
+            else
+                System.out.println("Impossible");
+            
+        }
+    }
+}
+        
+    
