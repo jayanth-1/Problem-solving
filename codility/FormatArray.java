@@ -1,30 +1,15 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+class Solution{
 
-class FormatArray {
-  
-    public static void main(String[] args){
+	public void solution(int[] A,int K){
 
-        String ans="";
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        int[] arr=new int[n];
-
-        for(int i=0;i<n;i++){
-            arr[i]=sc.nextInt();
-        }
+		String ans="";
         
-        int k=sc.nextInt();
-
+        int n=A.length;
+        
         int[] digLen=new int[n];
 
         for(int i=0;i<n;i++){
-            String temp=Integer.toString(arr[i]);
+            String temp=Integer.toString(A[i]);
             digLen[i]=temp.length();
         }
 
@@ -35,8 +20,8 @@ class FormatArray {
        String top="";
 
         int top_length;
-        if(n/k>0)
-            top_length=k;
+        if(n/K>0)
+            top_length=K;
         else
             top_length=n;
 
@@ -52,8 +37,8 @@ class FormatArray {
        while(count<n){
              String row="|";
 
-         for(int i=0;i<k && (count<n);i++){
-           String temp2=Integer.toString(arr[count]);
+         for(int i=0;i<K && (count<n);i++){
+           String temp2=Integer.toString(A[count]);
            int l=temp2.length();
           
            String temp3="";
@@ -65,15 +50,15 @@ class FormatArray {
           }
           
           if(count<n)
-    ans=ans+row+"\n"+top+"\n";
+             ans=ans+row+"\n"+top+"\n";
           else
-    ans=ans+row+"\n";
+             ans=ans+row+"\n";
          
     }
 
-    int bottom_length=n%k;
+    int bottom_length=n%K;
     if(bottom_length==0)
-    bottom_length=k;
+    bottom_length=K;
     String bottom="";
     for(int i=0;i<bottom_length;i++){
         bottom+="+";
@@ -86,4 +71,6 @@ class FormatArray {
     
     System.out.println(ans);
     }
+
 }
+	

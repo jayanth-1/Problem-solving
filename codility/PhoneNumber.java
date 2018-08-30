@@ -1,16 +1,7 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+class Solution {
 
-class PhoneNumber {
+	public String solution(String s){
 
-	public static void main(String[] args){
-		Scanner sc=new Scanner(System.in);
-		String s = sc.next();
 		int n=s.length();
         String ans2;
 		int i,count=0;;
@@ -44,13 +35,18 @@ class PhoneNumber {
           a=ans.charAt(l-1);
           b=ans.charAt(l-3);
           ans2=ans.substring(0,l-3)+'-'+b+a;
-          System.out.println(ans2);
+          return ans2;
+          
         }
         
         else if(r==0)
-		  System.out.println(ans.substring(0,l-1));
+        	return ans.substring(0,l-1);
 
 		else
-		  System.out.println(ans);
+			return ans;
+		  
         }
+
 	}
+
+	

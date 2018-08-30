@@ -1,16 +1,9 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+class Solution {
 
-class FileStatistics {
+	public String solution(String s){
 
-	public static void main(String[] args){
 
-		Scanner sc=new Scanner(System.in);
+		Scanner sc=new Scanner(s);
 
 		 HashSet<String> music = new HashSet<String>();
 		 HashSet<String> image = new HashSet<String>();
@@ -25,7 +18,7 @@ class FileStatistics {
          movie.add("mp4");
          movie.add("avi");
          movie.add("mkv");
-         int sizeMusic=0,sizeImage=0,sizeMovie=0,sizeOther=0;
+         Long sizeMusic=0L,sizeImage=0L,sizeMovie=0L,sizeOther=0L;
 		while(sc.hasNextLine()){
           String a=sc.nextLine();
      
@@ -52,24 +45,24 @@ class FileStatistics {
 
             if(c!='"'){
             if(music.contains(ex))
-            	sizeMusic+=Integer.parseInt(tokens[1].substring(0,lb-1));
+            	sizeMusic+=Long.parseLong(tokens[1].substring(0,lb-1));
             else if(image.contains(ex))
-            	sizeImage+=Integer.parseInt(tokens[1].substring(0,lb-1));
+            	sizeImage+=Long.parseLong(tokens[1].substring(0,lb-1));
             else if(movie.contains(ex))
-            	sizeMovie+=Integer.parseInt(tokens[1].substring(0,lb-1));
+            	sizeMovie+=Long.parseLong(tokens[1].substring(0,lb-1));
             else
-            	sizeOther+=Integer.parseInt(tokens[1].substring(0,lb-1));
+            	sizeOther+=Long.parseLong(tokens[1].substring(0,lb-1));
             }
 
             else{
             	   if(music.contains(ex))
-            	sizeMusic+=Integer.parseInt(tokens[1].substring(0,lb-2));
+            	sizeMusic+=Long.parseLong(tokens[1].substring(0,lb-2));
             else if(image.contains(ex))
-            	sizeImage+=Integer.parseInt(tokens[1].substring(0,lb-2));
+            	sizeImage+=Long.parseLong(tokens[1].substring(0,lb-2));
             else if(movie.contains(ex))
-            	sizeMovie+=Integer.parseInt(tokens[1].substring(0,lb-2));
+            	sizeMovie+=Long.parseLong(tokens[1].substring(0,lb-2));
             else
-            	sizeOther+=Integer.parseInt(tokens[1].substring(0,lb-2));
+            	sizeOther+=Long.parseLong(tokens[1].substring(0,lb-2));
             }
             
             
@@ -79,16 +72,18 @@ class FileStatistics {
            
 		  }
 
-		   String strMusic=String.valueOf(sizeMusic);
-           String strImage=String.valueOf(sizeImage);
-           String strMovie=String.valueOf(sizeMovie);
-           String strOther=String.valueOf(sizeOther);
+		   String strMusic=Long.toString(sizeMusic);
+           String strImage=Long.toString(sizeImage);
+           String strMovie=Long.toString(sizeMovie);
+           String strOther=Long.toString(sizeOther);
 
-           String ans="\nmusic "+strMusic+"b" +"\n"+"images "+strImage +"b"+"\n"+"movie "+strMovie+"b"+"\n"+"other "+strOther+"b";
+           String ans="\"music "+strMusic+"b" +"\n"+"images "+strImage +"b"+"\n"+"movie "+strMovie+"b"+"\n"+"other "+strOther+"b\"";
 
-           System.out.println(ans);
+           return ans;
            
 		}
 		
 		
 	}
+
+	
