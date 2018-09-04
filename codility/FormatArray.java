@@ -66,7 +66,7 @@ class Solution{
             bottom+="-";
         }
     }
-    bottom+="+\n";
+    bottom+="+";
     ans=ans+bottom;
     
     System.out.println(ans);
