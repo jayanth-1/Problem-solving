@@ -34,7 +34,7 @@ public class Statistics {
         movie.add("mkv");
 
         //Intializing size of music, image, movie, other files to "0"
-        Long sizeMusic = 0L, sizeImage = 0L, sizeMovie = 0L, sizeOther = 0L;
+        Long sizeMusic = 0L, sizeImage = 0L, sizeMovie = 0L, sizeofOther = 0L;
 
         //loop continues if input contains next line
         while (sc.hasNextLine()) {
@@ -63,7 +63,7 @@ public class Statistics {
                 else if (movie.contains(extensionType))
                     sizeMovie += Long.parseLong(fileDescription[1].substring(0, lenOfFile - 1));
                 else
-                    sizeOther += Long.parseLong(fileDescription[1].substring(0, lenOfFile - 1));
+                    sizeofOther += Long.parseLong(fileDescription[1].substring(0, lenOfFile - 1));
             } else {
                 if (music.contains(extensionType))
                     sizeMusic += Long.parseLong(fileDescription[1].substring(0, lenOfFile - 2));
@@ -72,7 +72,7 @@ public class Statistics {
                 else if (movie.contains(extensionType))
                     sizeMovie += Long.parseLong(fileDescription[1].substring(0, lenOfFile - 2));
                 else
-                    sizeOther += Long.parseLong(fileDescription[1].substring(0, lenOfFile - 2));
+                    sizeofOther += Long.parseLong(fileDescription[1].substring(0, lenOfFile - 2));
             }
 
             if (lastCharValueOfInput == '"')
@@ -84,7 +84,7 @@ public class Statistics {
         String strMusic = Long.toString(sizeMusic);
         String strImage = Long.toString(sizeImage);
         String strMovie = Long.toString(sizeMovie);
-        String strOther = Long.toString(sizeOther);
+        String strOther = Long.toString(sizeofOther);
 
         String fileSizeOfEachType = "\"music " + strMusic + "b" + "\n" + "images " + strImage + "b" + "\n" + "movie " + strMovie + "b" + "\n" + "other " + strOther + "b\"";
 
@@ -92,7 +92,7 @@ public class Statistics {
 
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         //creating Statistics object
         Statistics statisticsObj = new Statistics();
