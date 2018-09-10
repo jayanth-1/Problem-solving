@@ -16,22 +16,22 @@ public class LightBulbsCoding {
             moments++;
 
         //Creating BulbStatus boolean array to store which bulb is turned on
-        boolean[] BulbStatus = new boolean[numOfBulbs + 1];
-        BulbStatus[A[0]] = true;
+        boolean[] bulbStatus = new boolean[numOfBulbs + 1];
+        bulbStatus[A[0]] = true;
 
         // j and k are two pointers
         int j, k;
 
         for (j = 1; j < numOfBulbs; j++) {
             count = 0;
-            BulbStatus[A[j]] = true;
+            bulbStatus[A[j]] = true;
 
             for (k = 0; k <= j; k++) {
                 //Tracking number of bulbs turned on upto Kth position
                 if (A[k] == 1) {
                     count++;
                     continue;
-                } else if ((BulbStatus[A[k] - 1] == true))
+                } else if ((bulbStatus[A[k] - 1] == true))
                     count++;
             }
 
