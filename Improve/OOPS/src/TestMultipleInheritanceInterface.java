@@ -7,17 +7,18 @@ public class TestMultipleInheritanceInterface implements InterfaceA, InterfaceB 
 
     @Override
     public void distanceTravelled(){
-        System.out.println("distanceTravelled upto 60km");
+        System.out.println("distanceTravelled up to 60km");
     }
 
     public static void main(String[] args){
 
         //creating TestMultipleInheritanceInterface object
-        TestMultipleInheritanceInterface testMultipleInheritanceInterfaceObj = new TestMultipleInheritanceInterface();
+        InterfaceA interfaceA = new TestMultipleInheritanceInterface();
 
         //calling override methods
         //no ambiguous here because speed and distanceTravelled method have no implementation in interface
-        testMultipleInheritanceInterfaceObj.speed();
-        testMultipleInheritanceInterfaceObj.distanceTravelled();
+        interfaceA.speed();
+        interfaceA.distanceTravelled();
+
     }
 }
