@@ -4,7 +4,6 @@ public class FormatPhoneNumber {
 
     public String solution(String s) {
         int count = 0;
-
         //removing characters other than digits
         String partialFormatted = s.replaceAll("[^\\d]", "");
         int lenOfFormatted = partialFormatted.length();
@@ -17,7 +16,6 @@ public class FormatPhoneNumber {
                 finalFormatted.append("-");
                 count = 0;
             }
-
             finalFormatted.append(partialFormatted.charAt(i));
             count++;
         }
@@ -32,14 +30,13 @@ public class FormatPhoneNumber {
 
         //converting string buffer to string
         return finalFormattedString.toString();
-
     }
 
     public static void main(String[] args) {
 
         //creating FormatPhoneNumber object
         FormatPhoneNumber formatPhoneNumberObj = new FormatPhoneNumber();
-        String s = "00-44 48 5555 8361";
+        String s = "151153/1-534/-";
         System.out.println(formatPhoneNumberObj.solution(s));
     }
 

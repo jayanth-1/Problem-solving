@@ -8,7 +8,6 @@ public class Statistics {
     public String solution(String s) {
 
         Scanner sc = new Scanner(s);
-
         //HashSet for storing different types of music file extension
         HashSet<String> music = new HashSet<>();
 
@@ -38,9 +37,7 @@ public class Statistics {
 
         //loop continues if input contains next line
         while (sc.hasNextLine()) {
-
             String nextLineOfInput = sc.nextLine();
-
             //splitting line on space now fileDescription contains file name and file size
             String[] fileDescription = nextLineOfInput.split(" ");
 
@@ -49,9 +46,7 @@ public class Statistics {
 
             //storing file extension
             String extensionType = splitFileNameOnDot[splitFileNameOnDot.length - 1];
-
             int lenOfFile = fileDescription[1].length();
-
             char lastCharValueOfInput = nextLineOfInput.charAt(nextLineOfInput.length() - 1);
 
             //depending on last value of input adding file sizes
@@ -93,7 +88,6 @@ public class Statistics {
     }
 
     public static void main(String[] args) {
-
         //creating Statistics object
         Statistics statisticsObj = new Statistics();
         String s = "my.song.mp3 11b\ngreatSong.flac 1000b\nnot3.txt 5b\nvideo.mp4 200b\ngame.exe 100b\nmov!e.mkv 10000b";
